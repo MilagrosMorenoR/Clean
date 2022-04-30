@@ -1,13 +1,17 @@
 import React, {Component} from "react"
 import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable } from "react-native"
+import { Button } from 'react-native'
 
+const LoginScreen = ({ navigation }) => {
 
-class LoginScreen extends Component {
-    render(){
         return(
+            
             <View style={style.co}>
                
-    
+               <Image
+          style={{ width: 300, height: 259, marginLeft:50,marginTop:30,marginBottom: 2 }}
+          source={require("./dashcleanlogo.png")}
+            />
                 
                 <Text style={style.txtTitulo}>Inicia sesión o registrate!</Text>
                 <View style={style.textInputContainer}>
@@ -22,22 +26,34 @@ class LoginScreen extends Component {
                         secureTextEntry={true}
                     />
                 </View>
-                <Pressable onPress={()=>console.log("Presionando boton")}>
-                <View style={style.btnSesion}>
-                    <Text style={style.txtSesion}>Iniciar sesion</Text>
-                </View>
-                </Pressable>
+                
+               
+                <Button 
+                
+                onPress= {()=> {
+                    navigation.navigate('HomeScreen')
+                }}
 
-                <Pressable onPress={()=>console.log("Presionando boton")}>
-                <View style={style.btnSesion}>
-                    <Text style={style.txtSesion}>Registrate</Text>
+                title="Iniciar sesion" >
+                
+                </Button>
+                <View style={style.textISeparation}>
+
                 </View>
-                </Pressable>
+                <Button 
+                onPress= {()=> {
+                    navigation.navigate('RegisterScreen')
+                }}
+
+                title="Registrate" >
+                
+                </Button>
                 
             </View>
         )
     }
-}
+
+
 
 const style = StyleSheet.create({
     container: {
@@ -49,7 +65,7 @@ const style = StyleSheet.create({
         fontSize:30,
         textAlign:"center",
         color:"#000000",
-        marginTop:90
+        marginTop:40
     },
     textInputContainer:{
         flexDirection:"row",
@@ -59,10 +75,17 @@ const style = StyleSheet.create({
         marginLeft:15,
         marginRight:15,
         marginTop:20,
+        marginBottom:20,
         borderRadius:10
+    },
+    textISeparation:{
+        
+        marginTop:20,
+        
     },
     btnSesion:{
         marginTop:40,
+        marginBottom:40,
         marginLeft:30,
         marginRight:30,
         backgroundColor:"#1AB6FF",
