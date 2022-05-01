@@ -1,17 +1,20 @@
-import React, {Component} from "react"
+import React from "react";
 import { Text } from "react-native"
 import {
     Heading, Input, Center, NativeBaseProvider, NativeProvider, Button, Box, AspectRatio, Image, Stack,
     HStack, ScrollView, FlatList, View, Pressable, selected, Icon, Link
 } from 'native-base'
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-const HomeScreen = ({ navigation }) => {
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+
+const Cuenta = ({ navigation }) => {
 
    
-        return(
-            <NativeBaseProvider>
-            <Text>Hola mundo Home screen</Text>
+    return(
+        <NativeBaseProvider>
+            <Text>Hola mundo mi perfila</Text>
             <Box flex={1} bg="white" safeAreaTop>
                 <Center flex={1}></Center>
                 <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
@@ -62,8 +65,9 @@ const HomeScreen = ({ navigation }) => {
                 </HStack>
             </Box>
             </NativeBaseProvider>
-        )
-    }
+    )
+}
 
 
-export default HomeScreen;
+export default Cuenta;
+
