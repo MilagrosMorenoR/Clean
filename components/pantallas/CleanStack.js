@@ -5,6 +5,7 @@ import RegisterScreen from "./RegisterScreen";
 import HomeScreen from "./HomeScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import Cuenta from "./Cuenta";
+import MisServicios from "./MisServicios";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const CleanStack =  () => {
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="Cuenta" component={Cuenta} />
+          <Stack.Screen name="MisServicios" component={MisServicios} />
 
         </Stack.Navigator>
       </NavigationContainer>

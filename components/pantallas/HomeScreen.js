@@ -41,6 +41,29 @@ const HomeScreen = ({ navigation }) => {
                         opacity={selected === 2 ? 1 : 0.6}
                         py="2"
                         flex={1}
+                        onPress={() => navigation.navigate('MisServicios')}
+                    >
+                        <Center>
+                            <Icon
+                                mb="1"
+                                as={
+                                    <MaterialCommunityIcons
+                                        name={selected === 3 ? 'account' : 'account-outline'}
+                                    />
+                                }
+                                color="white"
+                                size="sm"
+                            />
+                            <Text color="white" fontSize="12">
+                                MisServicios
+                            </Text>
+                        </Center>
+                    </Pressable>
+
+                    <Pressable
+                        opacity={selected === 2 ? 1 : 0.6}
+                        py="2"
+                        flex={1}
                         onPress={() => navigation.navigate('Cuenta')}
                     >
                         <Center>
@@ -59,6 +82,7 @@ const HomeScreen = ({ navigation }) => {
                             </Text>
                         </Center>
                     </Pressable>
+
                 </HStack>
             </Box>
             </NativeBaseProvider>
