@@ -2,7 +2,7 @@ import React from "react";
 import { Text } from "react-native"
 import {
     Heading, Input, Center, NativeBaseProvider, NativeProvider, Button, Box, AspectRatio, Image, Stack,
-    HStack, ScrollView, FlatList, View, Pressable, selected, Icon, Link, VStack, Skeleton
+    HStack, ScrollView, FlatList, View, Pressable, selected, Icon, Link, VStack, Skeleton, Container
 } from 'native-base'
 
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
@@ -14,8 +14,7 @@ const Cuenta = ({ navigation }) => {
    
     return(
         <NativeBaseProvider>
-            
-            
+            <Container></Container>            
 
 
             <Box flex={1} bg="white" safeAreaTop>
