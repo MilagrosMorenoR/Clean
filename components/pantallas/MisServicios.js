@@ -51,7 +51,7 @@ const MisServicios = ({ navigation }) => {
             <AspectRatio w="100%" ratio={16 / 9}>
               <Image
                 source={{
-                  uri: "https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg",
+                  uri: "https://www.holidify.com/images/cmsuploads/compressed/68d0cc07-757e-494e-8cdf-f37b45eb41b6_20210122143100.jpg",
                 }}
                 alt="image"
               />
@@ -71,13 +71,17 @@ const MisServicios = ({ navigation }) => {
               px="3"
               py="1.5"
             >
-              PHOTOS
+              Standard
             </Center>
           </Box>
+
+
+
+
           <Stack p="4" space={3}>
             <Stack space={2}>
               <Heading size="md" ml="-1">
-                The Garden City
+                Aguascalientes
               </Heading>
               <Text
                 fontSize="xs"
@@ -91,13 +95,25 @@ const MisServicios = ({ navigation }) => {
                 ml="-0.5"
                 mt="-1"
               >
-                The Silicon Valley of India.
+                Av. Adolfo López Mateos Ote. 1801
+              </Text>
+              <Text
+                fontSize="xs"
+                _light={{
+                  color: "orange.500",
+                }}
+                _dark={{
+                  color: "orange.400",
+                }}
+                fontWeight="500"
+                ml="-0.5"
+                mt="-1"
+              >
+                Bona Gens, 20256
               </Text>
             </Stack>
             <Text fontWeight="400">
-              Bengaluru (also called Bangalore) is the center of India's
-              high-tech industry. The city is also known for its parks and
-              nightlife.
+              Servicio de limpieza de 4 horas recomendado para departamentos, con limpieza continua y SIN MASCOTAS, o para casa de una planta, dos habitaciones y un baño.
             </Text>
             <HStack
               alignItems="center"
@@ -112,10 +128,22 @@ const MisServicios = ({ navigation }) => {
                   }}
                   fontWeight="400"
                 >
-                  6 mins ago
+                  25/04/2022 | ⭐⭐⭐⭐
                 </Text>
               </HStack>
             </HStack>
+            <Text
+                  color="blue.600"
+                  _dark={{
+                    color: "blue.200",
+                  }}
+                  fontWeight="400"
+                  style={styles.underline}
+                  onPress={() => Alert.alert("Tel. 4491234567 \nJuan de Montoro #331, Centro"
+                  )}
+                >
+                  Amaia Gutierrez
+                </Text>
           </Stack>
         </Box>
       </Box>
@@ -195,5 +223,9 @@ const MisServicios = ({ navigation }) => {
     </NativeBaseProvider>
   );
 };
+const styles = StyleSheet.create({
+    
+    underline: {textDecorationLine: 'underline'}
+});
 
 export default MisServicios;
