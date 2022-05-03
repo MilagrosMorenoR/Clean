@@ -71,7 +71,7 @@ const MisServicios = ({ navigation }) => {
               px="3"
               py="1.5"
             >
-              Standar
+              Standard
             </Center>
           </Box>
 
