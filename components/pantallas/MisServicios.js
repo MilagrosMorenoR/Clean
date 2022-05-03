@@ -139,6 +139,8 @@ const MisServicios = ({ navigation }) => {
                   }}
                   fontWeight="400"
                   style={styles.underline}
+                  onPress={() => Alert.alert("Tel. 4491234567 \nJuan de Montoro #331, Centro"
+                  )}
                 >
                   Amaia Gutierrez
                 </Text>
