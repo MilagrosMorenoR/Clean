@@ -17,7 +17,7 @@ const CleanStack =  () => {
         <Stack.Navigator
             //screenOptions={{headerShown: false}}
         >
-          <Stack.Screen name="Login Screen tittle" component={LoginScreen} />
+          <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="Cuenta" component={Cuenta} />

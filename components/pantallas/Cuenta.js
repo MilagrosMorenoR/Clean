@@ -163,7 +163,7 @@ const Cuenta = ({ navigation }) => {
             </Popover.Content>
           </Popover>
 
-          <Button size="lg" variant="link">
+          <Button size="lg" variant="link" onPress={() => navigation.navigate("LoginScreen")}>
             Cerrar Secion
           </Button>
         </ScrollView>
