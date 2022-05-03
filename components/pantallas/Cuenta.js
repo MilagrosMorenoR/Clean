@@ -3,13 +3,13 @@ import { Text } from "react-native";
 import {
   Heading,
   Input,
+  Popover,
+  initialFocusRef,
+  FormControl,
   Avatar,
   Center,
   NativeBaseProvider,
   NativeProvider,
-  Popover,
-  initialFocusRef,
-  FormControl,
   Button,
   Box,
   AspectRatio,
@@ -61,53 +61,113 @@ const Cuenta = ({ navigation }) => {
         </Center>
       </Center>
 
-      <Box h="60%" w="100%" pt={5}>
-        <Popover
-          initialFocusRef={initialFocusRef}
-          trigger={(triggerProps) => {
-            return <Button {...triggerProps}>Edit Info</Button>;
-          }}
-        >
-          <Popover.Content width="56">
-            <Popover.Arrow />
-            <Popover.CloseButton />
-            {/* @ts-ignore */}
-            <Popover.Header>Personal Details</Popover.Header>
-            <Popover.Body>
-              <FormControl>
-                <FormControl.Label
-                  _text={{
-                    fontSize: "xs",
-                    fontWeight: "medium",
-                  }}
-                >
-                  First Name
-                </FormControl.Label>
-                <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
-              </FormControl>
-              <FormControl mt="3">
-                <FormControl.Label
-                  _text={{
-                    fontSize: "xs",
-                    fontWeight: "medium",
-                  }}
-                >
-                  Last Name
-                </FormControl.Label>
-                <Input rounded="sm" fontSize="xs" />
-              </FormControl>
-            </Popover.Body>
-            <Popover.Footer>
-              <Button.Group>
-                <Button colorScheme="coolGray" variant="ghost">
-                  Cancel
+      <Center backgroundColor={"#FFFFFF"}>
+        <ScrollView>
+          <Popover
+            initialFocusRef={initialFocusRef}
+            trigger={(triggerProps) => {
+              return (
+                <Button size="lg" variant="link" {...triggerProps}>
+                  Editar Informacion
                 </Button>
-                <Button>Save</Button>
-              </Button.Group>
-            </Popover.Footer>
-          </Popover.Content>
-        </Popover>
-      </Box>
+              );
+            }}
+          >
+            <Popover.Content width="56">
+              <Popover.Arrow />
+              <Popover.CloseButton />
+              {/* @ts-ignore */}
+              <Popover.Header>Detalles Personales</Popover.Header>
+              <Popover.Body>
+                <FormControl>
+                  <FormControl.Label
+                    _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium",
+                    }}
+                  >
+                    Nombre(s)
+                  </FormControl.Label>
+                  <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
+                </FormControl>
+                <FormControl mt="3">
+                  <FormControl.Label
+                    _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium",
+                    }}
+                  >
+                    Apellidos
+                  </FormControl.Label>
+                  <Input rounded="sm" fontSize="xs" />
+                </FormControl>
+                <FormControl mt="3">
+                  <FormControl.Label
+                    _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium",
+                    }}
+                  >
+                    Telefono
+                  </FormControl.Label>
+                  <Input rounded="sm" fontSize="xs" />
+                </FormControl>
+              </Popover.Body>
+              <Popover.Footer>
+                <Button.Group>
+                  <Button colorScheme="coolGray" variant="ghost">
+                    cancelar
+                  </Button>
+                  <Button>Guardar</Button>
+                </Button.Group>
+              </Popover.Footer>
+            </Popover.Content>
+          </Popover>
+
+          <Popover
+            initialFocusRef={initialFocusRef}
+            trigger={(triggerProps) => {
+              return (
+                <Button size="lg" variant="link" {...triggerProps}>
+                  Cuenta Bancaria
+                </Button>
+              );
+            }}
+          >
+            <Popover.Content width="56">
+              <Popover.Arrow />
+              <Popover.CloseButton />
+              {/* @ts-ignore */}
+              <Popover.Header>Cuenta Bancaria</Popover.Header>
+              <Popover.Body>
+                <FormControl>
+                  <FormControl.Label
+                    _text={{
+                      fontSize: "xs",
+                      fontWeight: "medium",
+                    }}
+                  >
+                    Numero de cuenta
+                  </FormControl.Label>
+                  <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
+                </FormControl>
+              </Popover.Body>
+              <Popover.Footer>
+                <Button.Group>
+                  <Button colorScheme="coolGray" variant="ghost">
+                    cancelar
+                  </Button>
+                  <Button>Guardar</Button>
+                </Button.Group>
+              </Popover.Footer>
+            </Popover.Content>
+          </Popover>
+
+          <Button size="lg" variant="link">
+            Cerrar Secion
+          </Button>
+        </ScrollView>
+      </Center>
 
       <Box flex={1} bg="white" safeAreaTop>
         <Center flex={1}></Center>
