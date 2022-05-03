@@ -46,6 +46,7 @@ const MisServicios = ({ navigation }) => {
           _light={{
             backgroundColor: "gray.50",
           }}
+          pt={5}
         >
           <Box>
             <AspectRatio w="100%" ratio={16 / 9}>
@@ -139,8 +140,7 @@ const MisServicios = ({ navigation }) => {
                   }}
                   fontWeight="400"
                   style={styles.underline}
-                  onPress={() => Alert.alert("Tel. 4491234567 \nJuan de Montoro #331, Centro"
-                  )}
+                  onPress={() => navigation.navigate('DetallesTrabajador')}
                 >
                   Amaia Gutierrez
                 </Text>

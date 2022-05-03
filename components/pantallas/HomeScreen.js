@@ -50,7 +50,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Dia que requiere la limpieza
               </FormControl.Label>
-              <Input placeholder="DD/MM/AAAA" />
+              <Input placeholder="DD/MM/AAAA" keyboardType="numeric"/>
               <FormControl.HelperText
                 _text={{
                   fontSize: "xs",
@@ -103,7 +103,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Numero(ext)
               </FormControl.Label>
-              <Input placeholder="Ej: 146" />
+              <Input placeholder="Ej: 146" keyboardType="numeric"/>
             </FormControl>
           </VStack>
 
@@ -116,7 +116,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Numero(int)
               </FormControl.Label>
-              <Input placeholder="Ej: 1" />
+              <Input placeholder="Ej: 1" keyboardType="numeric"/>
             </FormControl>
           </VStack>
 
@@ -133,7 +133,7 @@ const HomeScreen = ({ navigation }) => {
             </FormControl>
           </VStack>
 
-          <VStack width="90%" mx="3" maxW="300px" pt={10}>
+          <VStack width="90%" mx="3" maxW="300px" pt={10} pb={10}>
             <FormControl isRequired>
               <FormControl.Label
                 _text={{
@@ -142,13 +142,12 @@ const HomeScreen = ({ navigation }) => {
               >
                 Codigo Postal
               </FormControl.Label>
-              <Input placeholder="Ej: 20299" />
+              <Input placeholder="Ej: 20299" keyboardType="numeric"/>
             </FormControl>
-
-            <Button onPress={() => navigation.navigate("MisServicios")} >
+          </VStack>
+          <Button onPress={() => navigation.navigate("Paquetes")} >
               Siguiente
             </Button>
-          </VStack>
         </Center>
 
         <Center bg="indigo.600">
