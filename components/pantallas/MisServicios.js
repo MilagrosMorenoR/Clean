@@ -22,7 +22,7 @@ import {
   Skeleton,
   Text,
 } from "native-base";
-
+import { StyleSheet, Alert} from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 const MisServicios = ({ navigation }) => {
