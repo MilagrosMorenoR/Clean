@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Text } from "react-native";
 import {
   Heading,
@@ -7,6 +7,9 @@ import {
   Center,
   NativeBaseProvider,
   NativeProvider,
+  Popover,
+  initialFocusRef,
+  FormControl,
   Button,
   Box,
   AspectRatio,
@@ -24,7 +27,6 @@ import {
   Skeleton,
   Container,
 } from "native-base";
-
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
@@ -54,10 +56,58 @@ const Cuenta = ({ navigation }) => {
           >
             AJ
           </Avatar>
-          <Text style={{ color: '#FFFFFF' }}>Jennifer Flores</Text>
-          <Text style={{ color: '#FFFFFF' }}>Avanzado</Text>
+          <Text style={{ color: "#FFFFFF" }}>Jennifer Flores</Text>
+          <Text style={{ color: "#FFFFFF" }}>Avanzado</Text>
         </Center>
       </Center>
+
+      <Box h="60%" w="100%" pt={5}>
+        <Popover
+          initialFocusRef={initialFocusRef}
+          trigger={(triggerProps) => {
+            return <Button {...triggerProps}>Edit Info</Button>;
+          }}
+        >
+          <Popover.Content width="56">
+            <Popover.Arrow />
+            <Popover.CloseButton />
+            {/* @ts-ignore */}
+            <Popover.Header>Personal Details</Popover.Header>
+            <Popover.Body>
+              <FormControl>
+                <FormControl.Label
+                  _text={{
+                    fontSize: "xs",
+                    fontWeight: "medium",
+                  }}
+                >
+                  First Name
+                </FormControl.Label>
+                <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
+              </FormControl>
+              <FormControl mt="3">
+                <FormControl.Label
+                  _text={{
+                    fontSize: "xs",
+                    fontWeight: "medium",
+                  }}
+                >
+                  Last Name
+                </FormControl.Label>
+                <Input rounded="sm" fontSize="xs" />
+              </FormControl>
+            </Popover.Body>
+            <Popover.Footer>
+              <Button.Group>
+                <Button colorScheme="coolGray" variant="ghost">
+                  Cancel
+                </Button>
+                <Button>Save</Button>
+              </Button.Group>
+            </Popover.Footer>
+          </Popover.Content>
+        </Popover>
+      </Box>
 
       <Box flex={1} bg="white" safeAreaTop>
         <Center flex={1}></Center>
