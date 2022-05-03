@@ -6,12 +6,19 @@ import {
 } from 'native-base'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
+
 const HomeScreen = ({ navigation }) => {
 
    
         return(
             <NativeBaseProvider>
-            <Text>Hola mundo Home screen</Text>
+
+                <Center>
+                    
+                </Center>
+
+
+
             <Box flex={1} bg="white" safeAreaTop>
                 <Center flex={1}></Center>
                 <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
