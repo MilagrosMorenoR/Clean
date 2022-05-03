@@ -71,7 +71,7 @@ const MisServicios = ({ navigation }) => {
               px="3"
               py="1.5"
             >
-              Standard
+              Standar
             </Center>
           </Box>
 
@@ -128,10 +128,20 @@ const MisServicios = ({ navigation }) => {
                   }}
                   fontWeight="400"
                 >
-                  25/04/2022| ⭐⭐⭐⭐
+                  25/04/2022 | ⭐⭐⭐⭐
                 </Text>
               </HStack>
             </HStack>
+            <Text
+                  color="blue.600"
+                  _dark={{
+                    color: "blue.200",
+                  }}
+                  fontWeight="400"
+                  style={styles.underline}
+                >
+                  Amaia Gutierrez
+                </Text>
           </Stack>
         </Box>
       </Box>
@@ -211,5 +221,9 @@ const MisServicios = ({ navigation }) => {
     </NativeBaseProvider>
   );
 };
+const styles = StyleSheet.create({
+    
+    underline: {textDecorationLine: 'underline'}
+});
 
 export default MisServicios;
