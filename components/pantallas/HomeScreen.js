@@ -24,7 +24,6 @@ import {
 } from "native-base";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
-
 const HomeScreen = ({ navigation }) => {
   return (
     <NativeBaseProvider>
@@ -82,37 +81,57 @@ const HomeScreen = ({ navigation }) => {
             </FormControl>
           </VStack>
 
-                <Center>
-                    
-                    
-                </Center>
-            
+          <VStack width="90%" mx="3" maxW="300px" pt={10}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Calle
+              </FormControl.Label>
+              <Input placeholder="Ej: Diagonal Alfil" />
+            </FormControl>
+          </VStack>
 
-            <Box flex={1} bg="white" safeAreaTop>
-                
-                <Center flex={1}></Center>
-                <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
-                    <Pressable
-                        opacity={selected === 0 ? 1 : 0.5}
-                        py="3"
-                        flex={1}
-                        onPress={() => navigation.navigate('HomeScreen')}>
-                        <Center>
-                            <Icon
-                                mb="1"
-                                as={
-                                    <MaterialCommunityIcons
-                                        name={selected === 0 ? 'home' : 'home-outline'}
-                                    />
-                                }
-                                color="white"
-                                size="sm"
-                            />
-                            <Text color="white" fontSize="12">
-                                Home
-                            </Text>
-                        </Center>
-                    </Pressable>
+          <VStack width="90%" mx="3" maxW="300px" pt={10}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Numero(ext)
+              </FormControl.Label>
+              <Input placeholder="Ej: 146" keyboardType="numeric"/>
+            </FormControl>
+          </VStack>
+
+          <VStack width="90%" mx="3" maxW="300px" pt={10}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Numero(int)
+              </FormControl.Label>
+              <Input placeholder="Ej: 1" keyboardType="numeric"/>
+            </FormControl>
+          </VStack>
+
+          <VStack width="90%" mx="3" maxW="300px" pt={10}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Colonia
+              </FormControl.Label>
+              <Input placeholder="Ej: Lomas del Ajedrez" />
+            </FormControl>
+          </VStack>
 
           <VStack width="90%" mx="3" maxW="300px" pt={10} pb={10}>
             <FormControl isRequired>
