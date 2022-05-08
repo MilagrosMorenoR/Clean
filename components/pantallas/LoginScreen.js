@@ -1,15 +1,53 @@
-import React, {Component} from "react"
+import React, {Component, useState} from "react"
 import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable } from "react-native"
 import { Button } from 'react-native'
+import HomeScreen from "./HomeScreen"
+
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebase-config';
+
 
 const LoginScreen = ({ navigation }) => {
+    const [email, setEmail] = React.useState('')
+    const [password, setPassword] = React.useState('')
 
+    
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    
+    
+    const handleCreateAccount = () => {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log('Account created!')
+          const user = userCredential.user;
+          console.log(user)
+        })
+        .catch(error => {
+          console.log(error)
+          Alert.alert(error.message)
+        })
+      }
+      const handleSignIn = () => {
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          console.log('Signed in!')
+          const user = userCredential.user;
+          console.log(user)
+          navigation.navigate('HomeScreen');
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
+    
         return(
             
             <View style={style.co}>
                
                <Image
-          style={{ width: 300, height: 259, marginLeft:50,marginTop:30,marginBottom: 2 }}
+          style={{ width: 300, height: 259, marginLeft:50,marginTop:20,marginBottom: 2 }}
           source={require("./dashcleanlogo.png")}
             />
                 
@@ -17,37 +55,36 @@ const LoginScreen = ({ navigation }) => {
                 <View style={style.textInputContainer}>
                     <TextInput
                         placeholder="Usuario"
-
+                       onChangeText={(text) => setEmail(text)}
                     />
                 </View>
                 <View style={style.textInputContainer}>
                     <TextInput
                         placeholder="Contraseña"
+                        onChangeText={(text) => setPassword(text)}
                         secureTextEntry={true}
                     />
                 </View>
                 
-               
+                <View style={style.BtnContainer}>
                 <Button 
-                
-                onPress= {()=> {
+                /*onPress= {()=> {
                     navigation.navigate('HomeScreen')
-                }}
-
+                }}*/
+                onPress={handleSignIn}
+               
                 title="Iniciar sesion" >
                 
-                </Button>
-                <View style={style.textISeparation}>
-
+                </Button  >
                 </View>
-                <Button 
-                onPress= {()=> {
-                    navigation.navigate('RegisterScreen')
-                }}
 
+                <View style={style.BtnContainer}>
+                <Button
+                onPress={handleCreateAccount}
                 title="Registrate" >
                 
                 </Button>
+                </View>
                 <View>
                 <Text style={style.txtTerminos}>Terminos y condiciones. Podrán registrarse en Dash Clean App todas aquellas personas que en su país 
                     de residencia sea Mexico consideradas legalmente mayores de edad. Las personas menores de edad deberán hacerlo a través de una cuenta de usuario de sus padres,
@@ -85,8 +122,18 @@ const style = StyleSheet.create({
         backgroundColor:"#FFF",
         marginLeft:15,
         marginRight:15,
-        marginTop:20,
+        marginTop:10,
         marginBottom:20,
+        borderRadius:10
+    },
+    BtnContainer:{
+        flexDirection:"row",
+        justifyContent:"center",
+        alignItems:"center",
+        marginLeft:15,
+        marginRight:15,
+        marginTop:10,
+        marginBottom:5,
         borderRadius:10
     },
     textISeparation:{

@@ -3,7 +3,8 @@ import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable } from 
 import { Button } from 'react-native'
 
 const RegisterScreen = ({ navigation }) => {
-
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
    
     return(
             
