@@ -12,7 +12,10 @@
   "dependencies": {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@react-native-community/datetimepicker": "^6.1.3",
+=======
+>>>>>>> parent of 258a953 (buscar)
 =======
 >>>>>>> parent of 258a953 (buscar)
     "expo": "~44.0.0",

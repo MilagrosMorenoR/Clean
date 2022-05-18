@@ -2627,6 +2627,7 @@
     "@protobufjs/inquire" "^1.1.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@protobufjs/float@^1.0.2":
   "version" "1.0.2"
 
@@ -3124,6 +3125,8 @@
     "opencollective-postinstall" "^2.0.1"
     "superstruct" "^0.6.2"
 
+=======
+>>>>>>> parent of 258a953 (buscar)
 "@react-native/assets@1.0.0":
   "version" "1.0.0"
 
@@ -4751,6 +4754,7 @@ cliui@^6.0.0:
     "node-releases" "^1.1.61"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "bser@2.1.1":
   "version" "2.1.1"
   dependencies:
@@ -4762,6 +4766,8 @@ cliui@^6.0.0:
 "buffer-alloc@^1.1.0":
   "version" "1.2.0"
 =======
+=======
+>>>>>>> parent of 258a953 (buscar)
 clone-deep@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/clone-deep/-/clone-deep-4.0.1.tgz#c19fd9bdbbf85942b4fd979c84dcf7d5f07c2387"
@@ -11128,6 +11134,7 @@ react-native-codegen@^0.0.6:
     "safe-buffer" "^5.1.2"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "pump@^2.0.0":
   "version" "2.0.1"
   dependencies:
@@ -11143,6 +11150,8 @@ react-native-codegen@^0.0.6:
 "pumpify@^1.3.3":
   "version" "1.5.1"
 =======
+=======
+>>>>>>> parent of 258a953 (buscar)
 react-native-web@0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.17.1.tgz#90d473c89dd99b88bc9830b2a9fcdd2fc5f04902"
@@ -13446,6 +13455,7 @@ wrap-ansi@^6.2.0:
     "imurmurhash" "^0.1.4"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "unique-string@^1.0.0":
   "version" "1.0.0"
   dependencies:
@@ -13454,6 +13464,8 @@ wrap-ansi@^6.2.0:
 "unique-string@^2.0.0":
   "version" "2.0.0"
 =======
+=======
+>>>>>>> parent of 258a953 (buscar)
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
@@ -13612,6 +13624,7 @@ yargs-parser@^18.1.2:
     "object-assign" "^4.1.1"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "use@^3.1.0":
   "version" "3.1.1"
 
@@ -13621,6 +13634,8 @@ yargs-parser@^18.1.2:
 "util.promisify@~1.0.0", "util.promisify@1.0.0":
   "version" "1.0.0"
 =======
+=======
+>>>>>>> parent of 258a953 (buscar)
 yargs@^15.1.0, yargs@^15.3.1:
   version "15.4.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-15.4.1.tgz#0d87a16de01aee9d8bec2bfbf74f67851730f4f8"
@@ -13630,6 +13645,7 @@ yargs@^15.1.0, yargs@^15.3.1:
     "define-properties" "^1.1.2"
     "object.getownpropertydescriptors" "^2.0.3"
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 "util@^0.11.0":
   "version" "0.11.1"
@@ -14070,6 +14086,8 @@ yargs@^15.1.0, yargs@^15.3.1:
 "yocto-queue@^0.1.0":
   "version" "0.1.0"
 =======
+=======
+>>>>>>> parent of 258a953 (buscar)
 yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
