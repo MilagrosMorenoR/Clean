@@ -1,5 +1,5 @@
 import React, {Component, useState} from "react"
-import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable,Alert } from "react-native"
+import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable } from "react-native"
 import { Button } from 'react-native'
 import HomeScreen from "./HomeScreen"
 
