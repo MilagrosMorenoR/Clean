@@ -8,8 +8,7 @@
     "splash": {
       "image": "./assets/dashcleanlogo.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "userInterfaceStyle": "automatic"
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
