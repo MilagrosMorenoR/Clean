@@ -1,8 +1,8 @@
 import React, {Component, useState} from "react"
-import { Text,View, StyleSheet,Image,TextInput, ViewPropTypes, Pressable } from "react-native"
+import { Text,View, StyleSheet,Image,TextInput,Box, ViewPropTypes, Pressable } from "react-native"
 import { Button } from 'react-native'
 import HomeScreen from "./HomeScreen"
-
+import  { widthPercentageToDP  as  wp ,  heightPercentageToDP  as  hp }  from  'react-native-responsive-screen' ;
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase-config';
@@ -29,7 +29,6 @@ const LoginScreen = ({ navigation }) => {
           Alert.alert(error.message)
         })
       }
-      
       const handleSignIn = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -45,10 +44,11 @@ const LoginScreen = ({ navigation }) => {
     
         return(
             
+           
             <View style={style.co}>
                
                <Image
-          style={{ width: 300, height: 259, marginLeft:50,marginTop:20,marginBottom: 2 }}
+          style={{ width: 300,height: 259, marginRight: hp ( '5%' ), marginLeft: hp ( '5%' ),marginTop: hp ( '5%' ) }}
           source={require("./dashcleanlogo.png")}
             />
                 
@@ -93,6 +93,8 @@ const LoginScreen = ({ navigation }) => {
             </View>
                 
             </View>
+
+           
         )
     }
 
@@ -105,16 +107,16 @@ const style = StyleSheet.create({
 
     },
     txtTitulo: {
-        fontSize:30,
+        fontSize : hp ( '3%' ),
         textAlign:"center",
         color:"#000000",
-        marginTop:40
+        marginTop: hp ( '1%' )
     },
     txtTerminos: {
-        fontSize:10,
+        fontSize : hp ( '1%' ),
         textAlign:"center",
         color:"#000000",
-        marginTop:20
+        marginTop: hp ( '1%' )
     },
     textInputContainer:{
         flexDirection:"row",
@@ -123,8 +125,7 @@ const style = StyleSheet.create({
         backgroundColor:"#FFF",
         marginLeft:15,
         marginRight:15,
-        marginTop:10,
-        marginBottom:20,
+        marginTop: hp ( '2%' ),
         borderRadius:10
     },
     BtnContainer:{
@@ -133,18 +134,17 @@ const style = StyleSheet.create({
         alignItems:"center",
         marginLeft:15,
         marginRight:15,
-        marginTop:10,
-        marginBottom:5,
+        marginTop: hp ( '2%' ),
         borderRadius:10
     },
     textISeparation:{
         
-        marginTop:20,
+        marginTop: hp ( '2%' ),
         
     },
+
     btnSesion:{
-        marginTop:40,
-        marginBottom:40,
+       marginTop: hp ( '2%' ),
         marginLeft:30,
         marginRight:30,
         backgroundColor:"#1AB6FF",
