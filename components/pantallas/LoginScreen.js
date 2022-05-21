@@ -81,11 +81,17 @@ const LoginScreen = ({ navigation }) => {
 
                 <View style={style.BtnContainer}>
                 <Button
+
+             
+                codigo apra crear cuenta
                 onPress={handleCreateAccount}
                 title="Registrate" >
                 
                 </Button>
                 </View>
+
+
+
                 <View>
                 <Text style={style.txtTerminos}>Terminos y condiciones. Podrán registrarse en Dash Clean App todas aquellas personas que en su país 
                     de residencia sea Mexico consideradas legalmente mayores de edad. Las personas menores de edad deberán hacerlo a través de una cuenta de usuario de sus padres,
@@ -119,6 +125,7 @@ const style = StyleSheet.create({
         marginTop: hp ( '1%' )
     },
     textInputContainer:{
+       
         flexDirection:"row",
         justifyContent:"center",
         alignItems:"center",
