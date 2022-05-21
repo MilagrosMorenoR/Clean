@@ -31,6 +31,20 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
+import { auth,getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebase-config';
+
+
+const handleSingOut = () => {
+  auth
+  .singOut()
+  .thehn(() => {
+    navigation.navigate('LoginScreen');
+  })
+  .catch(error => alert(error.message))
+}
+
 const Cuenta = ({ navigation }) => {
   return (
     <NativeBaseProvider>
@@ -164,7 +178,7 @@ const Cuenta = ({ navigation }) => {
           </Popover>
 
           <Button size="lg" variant="link" onPress={() => navigation.navigate("LoginScreen")}>
-            Cerrar Secion
+            Cerrar Sesión
           </Button>
         </ScrollView>
       </Center>

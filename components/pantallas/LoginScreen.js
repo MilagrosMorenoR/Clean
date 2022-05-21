@@ -29,6 +29,7 @@ const LoginScreen = ({ navigation }) => {
           Alert.alert(error.message)
         })
       }
+      
       const handleSignIn = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
