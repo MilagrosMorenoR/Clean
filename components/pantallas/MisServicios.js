@@ -20,10 +20,11 @@ import {
   Link,
   VStack,
   Skeleton,
-  Text,
+  Text, 
 } from "native-base";
 import { StyleSheet, Alert} from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+
 
 const MisServicios = ({ navigation }) => {
   return (
@@ -76,14 +77,25 @@ const MisServicios = ({ navigation }) => {
             </Center>
           </Box>
 
-
-
-
           <Stack p="4" space={3}>
             <Stack space={2}>
               <Heading size="md" ml="-1">
                 Aguascalientes
               </Heading>
+              <Text
+                fontSize="xs"
+                _light={{
+                  color: "black",
+                }}
+                _dark={{
+                  color: "black",
+                }}
+                fontWeight="500"
+                ml="-0.5"
+                mt="-1"
+              >
+                8:00am   $600
+              </Text>
               <Text
                 fontSize="xs"
                 _light={{
@@ -114,7 +126,7 @@ const MisServicios = ({ navigation }) => {
               </Text>
             </Stack>
             <Text fontWeight="400">
-              Servicio de limpieza de 4 horas recomendado para departamentos, con limpieza continua y SIN MASCOTAS, o para casa de una planta, dos habitaciones y un baño.
+              Servicio de limpieza de 4 horas en departamento, con limpieza continua de cocina, cochera y dos habitaciones y un baño.
             </Text>
             <HStack
               alignItems="center"
@@ -144,9 +156,15 @@ const MisServicios = ({ navigation }) => {
                 >
                   Amaia Gutierrez
                 </Text>
-          </Stack>
+          </Stack> 
+
+          
+          <Button onPress={() => navigation.navigate("HomeScreen")}>Finalizar servicio</Button>
+
+      
         </Box>
       </Box>
+      
 
       <Box flex={1} bg="white" safeAreaTop>
                 <Center flex={1}></Center>
@@ -168,10 +186,33 @@ const MisServicios = ({ navigation }) => {
                                 size="sm"
                             />
                             <Text color="white" fontSize="12">
-                                Home
+                                Buscar
                             </Text>
                         </Center>
                     </Pressable>
+
+                    <Pressable
+                opacity={selected === 0 ? 1 : 0.5}
+                py="3"
+                flex={1}
+                onPress={() => navigation.navigate("PublicarServicio")}
+              >
+                <Center>
+                  <Icon
+                    mb="1"
+                    as={
+                      <MaterialCommunityIcons
+                        name={selected === 0 ? "Buscar" : "home-outline"}
+                      />
+                    }
+                    color="white"
+                    size="sm"
+                  />
+                  <Text color="white" fontSize="12">
+                    Publicar
+                  </Text>
+                </Center>
+              </Pressable>
 
                     <Pressable
                         opacity={selected === 2 ? 1 : 0.6}

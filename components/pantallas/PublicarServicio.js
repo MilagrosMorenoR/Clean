@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
               marginTop: 30,
               marginBottom: 2,
             }}
-            source={require("./dashcleanlogo.png")} alt="images"
+            source={require("./dashcleanlogo.png") }alt="image2"
           />
         </Center>
         <Center backgroundColor={"#FFFFFF"} pt={5}>
@@ -48,7 +48,7 @@ const HomeScreen = ({ navigation }) => {
                   bold: true,
                 }}
               >
-                Dia que realizara la limpieza
+                Dia que requiere la limpieza
               </FormControl.Label>
               <Input placeholder="DD/MM/AAAA" keyboardType="numeric"/>
               <FormControl.HelperText
@@ -57,6 +57,39 @@ const HomeScreen = ({ navigation }) => {
                 }}
               >
                 Por favor ponga el formato indicado
+              </FormControl.HelperText>
+            </FormControl>
+          </VStack>
+
+          <VStack width="90%" mx="3" maxW="300px" pt={5}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Indicaciones del servicio
+              </FormControl.Label>
+              <Input placeholder="Ej: Limpiar baño, cocina y cochera" />
+            </FormControl>
+          </VStack>
+
+          <VStack width="90%" mx="3" maxW="300px" pt={5}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Hora que requiere la limpieza
+              </FormControl.Label>
+              <Input placeholder="Ej: 18:00" />
+              <FormControl.HelperText
+                _text={{
+                  fontSize: "xs",
+                }}
+              >
+                Por favor ponga el formato de 24 horas
               </FormControl.HelperText>
             </FormControl>
           </VStack>
@@ -113,7 +146,7 @@ const HomeScreen = ({ navigation }) => {
             </FormControl>
           </VStack>
 
-          <VStack width="90%" mx="3" maxW="300px" pt={5} pb={5}>
+          <VStack width="90%" mx="3" maxW="300px" pt={5}>
             <FormControl isRequired>
               <FormControl.Label
                 _text={{
@@ -125,7 +158,21 @@ const HomeScreen = ({ navigation }) => {
               <Input placeholder="Ej: 20299" keyboardType="numeric"/>
             </FormControl>
           </VStack>
-          <Button onPress={() => navigation.navigate("Paquetes")} >
+
+          <VStack width="90%" mx="3" maxW="300px" pt={5} pb={5}>
+            <FormControl isRequired>
+              <FormControl.Label
+                _text={{
+                  bold: true,
+                }}
+              >
+                Cuanto va pagar por el servicio
+              </FormControl.Label>
+              <Input placeholder="Ej: $500" keyboardType="numeric"/>
+            </FormControl>
+          </VStack>
+
+          <Button onPress={() => navigation.navigate("ServicioPublicado")} >
               Siguiente
             </Button>
         </Center>
@@ -136,7 +183,7 @@ const HomeScreen = ({ navigation }) => {
             bg="white"
             safeAreaTop
             width="100%"
-            maxW="900px"
+            home-outline
             alignSelf="center"
           >
             <Center flex={1}></Center>
@@ -148,7 +195,7 @@ const HomeScreen = ({ navigation }) => {
             >
               <Pressable
                 opacity={selected === 0 ? 1 : 0.5}
-                py="3"
+                py="4"
                 flex={1}
                 onPress={() => navigation.navigate("HomeScreen")}
               >
@@ -168,7 +215,6 @@ const HomeScreen = ({ navigation }) => {
                   </Text>
                 </Center>
               </Pressable>
-
 
               <Pressable
                 opacity={selected === 0 ? 1 : 0.5}
@@ -193,10 +239,9 @@ const HomeScreen = ({ navigation }) => {
                 </Center>
               </Pressable>
 
-
               <Pressable
                 opacity={selected === 2 ? 1 : 0.6}
-                py="3"
+                py="2"
                 flex={1}
                 onPress={() => navigation.navigate("MisServicios")}
               >
@@ -219,7 +264,7 @@ const HomeScreen = ({ navigation }) => {
 
               <Pressable
                 opacity={selected === 2 ? 1 : 0.6}
-                py="2"
+                py="3"
                 flex={1}
                 onPress={() => navigation.navigate("Cuenta")}
               >

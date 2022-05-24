@@ -204,10 +204,33 @@ const Cuenta = ({ navigation }) => {
                 size="sm"
               />
               <Text color="white" fontSize="12">
-                Home
+                Buscar
               </Text>
             </Center>
           </Pressable>
+
+          <Pressable
+                opacity={selected === 0 ? 1 : 0.5}
+                py="3"
+                flex={1}
+                onPress={() => navigation.navigate("PublicarServicio")}
+              >
+                <Center>
+                  <Icon
+                    mb="1"
+                    as={
+                      <MaterialCommunityIcons
+                        name={selected === 0 ? "Buscar" : "home-outline"}
+                      />
+                    }
+                    color="white"
+                    size="sm"
+                  />
+                  <Text color="white" fontSize="12">
+                    Publicar
+                  </Text>
+                </Center>
+              </Pressable>
 
           <Pressable
             opacity={selected === 2 ? 1 : 0.6}

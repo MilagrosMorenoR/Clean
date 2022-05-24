@@ -26,7 +26,7 @@ const LoginScreen = ({ navigation }) => {
         })
         .catch(error => {
           console.log(error)
-          Alert.alert(error.message)
+          //Alert.alert(error.message)
         })
       }
       const handleSignIn = () => {

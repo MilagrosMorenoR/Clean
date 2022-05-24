@@ -32,7 +32,6 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 const Paquetes = ({ navigation }) => {
   return (
     <NativeBaseProvider>
-      <ScrollView>
       <Center backgroundColor={"#FFFFFF"}>
         <Box alignItems="center">
           <Box
@@ -60,7 +59,7 @@ const Paquetes = ({ navigation }) => {
                   source={{
                     uri: "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2018/06/limpieza-casa-cubo-fregona.jpg",
                   }}
-                  alt="image"
+                  alt="image1"
                 />
               </AspectRatio>
               
@@ -69,9 +68,6 @@ const Paquetes = ({ navigation }) => {
               <Stack space={2}>
                 <Heading size="md" ml="-1">
                   Limpiar casa
-                </Heading>
-                <Heading size="md" ml="-1">
-                  8:00 am
                 </Heading>
                 <Text
                   fontSize="xs"
@@ -85,7 +81,7 @@ const Paquetes = ({ navigation }) => {
                   ml="-0.5"
                   mt="-1"
                 >
-                  Detalles:
+                 Detalles:
                 </Text>
               </Stack>
               <Text fontWeight="400">
@@ -104,99 +100,16 @@ const Paquetes = ({ navigation }) => {
                     }}
                     fontWeight="400"
                   >
-                   Pago de: $600
+                    600$
                   </Text>
                 </HStack>
 
-                <Button onPress={() => navigation.navigate("MisServicios")}>Seleccionar</Button>
+                <Button onPress={() => navigation.navigate("HomeScreen")}>Finalizar</Button>
               </HStack>
             </Stack>
           </Box>
         </Box>
       </Center>
-
-      <Center backgroundColor={"#FFFFFF"}>
-        <Box alignItems="center">
-          <Box
-            maxW="80"
-            rounded="lg"
-            overflow="hidden"
-            borderColor="coolGray.200"
-            borderWidth="1"
-            _dark={{
-              borderColor: "coolGray.600",
-              backgroundColor: "gray.700",
-            }}
-            _web={{
-              shadow: 2,
-              borderWidth: 0,
-            }}
-            _light={{
-              backgroundColor: "gray.50",
-            }}
-            pt={5}
-          >
-            <Box>
-              <AspectRatio w="100%" ratio={16 / 9}>
-                <Image
-                  source={{
-                    uri: "https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2018/06/limpieza-casa-cubo-fregona.jpg",
-                  }}
-                  alt="image"
-                />
-              </AspectRatio>
-              
-            </Box>
-            <Stack p="4" space={3}>
-              <Stack space={2}>
-                <Heading size="md" ml="-1">
-                  Limpiar casa
-                </Heading>
-                <Heading size="md" ml="-1">
-                  13:00 pm
-                </Heading>
-                <Text
-                  fontSize="xs"
-                  _light={{
-                    color: "violet.500",
-                  }}
-                  _dark={{
-                    color: "violet.400",
-                  }}
-                  fontWeight="500"
-                  ml="-0.5"
-                  mt="-1"
-                >
-                  Detalles:
-                </Text>
-              </Stack>
-              <Text fontWeight="400">
-              Realizar limpieza de 2 baños, cochera, patio y dos habitaciones.
-              </Text>
-              <HStack
-                alignItems="center"
-                space={4}
-                justifyContent="space-between"
-              >
-                <HStack alignItems="center">
-                  <Text
-                    color="coolGray.600"
-                    _dark={{
-                      color: "warmGray.200",
-                    }}
-                    fontWeight="400"
-                  >
-                    Pado de: $600
-                  </Text>
-                </HStack>
-
-                <Button onPress={() => navigation.navigate("MisServicios")}>Seleccionar</Button>
-              </HStack>
-            </Stack>
-          </Box>
-        </Box>
-      </Center>
-
 
       <Box flex={1} bg="white" safeAreaTop>
         <Center flex={1}></Center>
@@ -205,7 +118,7 @@ const Paquetes = ({ navigation }) => {
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => navigation.navigate("HomeScreen")}
+            onPress={() => navigation.navigate("PublicarServicio")}
           >
             <Center>
               <Icon
@@ -219,7 +132,7 @@ const Paquetes = ({ navigation }) => {
                 size="sm"
               />
               <Text color="white" fontSize="12">
-                Buscar
+                Publicar
               </Text>
             </Center>
           </Pressable>
@@ -271,7 +184,6 @@ const Paquetes = ({ navigation }) => {
           </Pressable>
         </HStack>
       </Box>
-      </ScrollView>
     </NativeBaseProvider>
   );
 };
