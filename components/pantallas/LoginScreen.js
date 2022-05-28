@@ -1,47 +1,47 @@
-import React, {Component, useState} from "react"
+import React, {useEffect, useState} from "react"
 import { Text,View, StyleSheet,Image,TextInput,Box, ViewPropTypes, Pressable } from "react-native"
 import { Button } from 'react-native'
 import HomeScreen from "./HomeScreen"
 import  { widthPercentageToDP  as  wp ,  heightPercentageToDP  as  hp }  from  'react-native-responsive-screen' ;
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from './firebase-config';
+import {auth} from '../pantallas/firebase-config';
+import { useNavigation } from "@react-navigation/native";
 
 
 const LoginScreen = ({ navigation }) => {
-    const [email, setEmail] = React.useState('')
-    const [password, setPassword] = React.useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-    
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    
-    
-    const handleCreateAccount = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log('Account created!')
-          const user = userCredential.user;
-          console.log(user)
+
+    useEffect(() => {
+        const unsuscribe = auth.onAuthStateChanged(user => {
+            if(user){
+                navigation.navigate("HomeScreen")
+            }
         })
-        .catch(error => {
-          console.log(error)
-          //Alert.alert(error.message)
+        return unsuscribe
+    }, [])
+
+    const handleSignUp = () => {
+        auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log(user.email);
         })
-      }
-      const handleSignIn = () => {
-        signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          console.log('Signed in!')
-          const user = userCredential.user;
-          console.log(user)
-          navigation.navigate('HomeScreen');
+        .catch(error => alert(error.message))
+    }
+
+    const handleLogin = () => {
+        auth
+        .signInWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log(user.email);
         })
-        .catch(error => {
-          console.log(error)
-        })
-      }
-    
+        .catch(error => alert(error.message))
+    }
+
+
         return(
             
            
@@ -56,6 +56,7 @@ const LoginScreen = ({ navigation }) => {
                 <View style={style.textInputContainer}>
                     <TextInput
                         placeholder="Usuario"
+                        value={email}
                        onChangeText={(text) => setEmail(text)}
                     />
                 </View>
@@ -69,24 +70,17 @@ const LoginScreen = ({ navigation }) => {
                 
                 <View style={style.BtnContainer}>
                 <Button 
-                /*onPress= {()=> {
-                    navigation.navigate('HomeScreen')
-                }}*/
-                onPress={handleSignIn}
-               
-                title="Iniciar sesion" >
-                
+                    onPress= {handleLogin}
+                    title="Iniciar sesion" 
+                >
                 </Button  >
                 </View>
 
                 <View style={style.BtnContainer}>
                 <Button
-
-             
-                codigo apra crear cuenta
-                onPress={handleCreateAccount}
-                title="Registrate" >
-                
+                    onPress={handleSignUp}
+                    title="Registrate" 
+                >
                 </Button>
                 </View>
 

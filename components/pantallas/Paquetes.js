@@ -29,6 +29,7 @@ import {
 } from "native-base";
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
+
 const Paquetes = ({ navigation }) => {
   return (
     <NativeBaseProvider>
