@@ -24,11 +24,13 @@ import {
 } from "native-base";
 import { StyleSheet, Alert} from "react-native";
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { auth } from "./firebase-config";
 
 
 const MisServicios = ({ navigation }) => {
   return (
     <NativeBaseProvider>
+
       <Box alignItems="center">
         <Box
           maxW="80"
@@ -257,8 +259,10 @@ const MisServicios = ({ navigation }) => {
                             <Text color="white" fontSize="12">
                                 Cuenta
                             </Text>
+                            
                         </Center>
                     </Pressable>
+                    
                 </HStack>
             </Box>
     </NativeBaseProvider>
