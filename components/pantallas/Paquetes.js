@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import {
   Heading,
@@ -31,6 +31,9 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 
 const Paquetes = ({ navigation }) => {
+
+  
+
   return (
     <NativeBaseProvider>
       <ScrollView>

@@ -8,6 +8,7 @@ import "firebase/firestore";
 import "firebase/auth";
 
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyA5w7HELbwvA6wM4y7heQUmdwq2AQ0q-Kc",
   authDomain: "ultimointentoauthmovilesmutli.firebaseapp.com",
@@ -28,4 +29,4 @@ if (firebase.apps.length === 0){
 
 const auth = firebase.auth();
 const db = firebase.firestore();
-export {auth,db};
+export {auth, db};
