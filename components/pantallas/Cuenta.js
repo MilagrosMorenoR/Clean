@@ -31,21 +31,21 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { auth,getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
-import { firebaseConfig } from './firebase-config';
+import {auth} from '../pantallas/firebase-config';
 
 
-const handleSingOut = () => {
-  auth
-  .singOut()
-  .thehn(() => {
-    navigation.navigate('LoginScreen');
-  })
-  .catch(error => alert(error.message))
-}
+
 
 const Cuenta = ({ navigation }) => {
+  const handleSingOut = () => {
+    auth
+    .signOut()
+    .then(() => {
+      navigation.navigate('LoginScreen');
+    })
+    .catch(error => alert(error.message))
+  }
+  
   return (
     <NativeBaseProvider>
       <Center bg="primary.400">
@@ -177,7 +177,7 @@ const Cuenta = ({ navigation }) => {
             </Popover.Content>
           </Popover>
 
-          <Button size="lg" variant="link" onPress={() => navigation.navigate("LoginScreen")}>
+          <Button size="lg" variant="link" onPress={handleSingOut}>
             Cerrar Sesión
           </Button>
         </ScrollView>
