@@ -3,9 +3,9 @@
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 
-import * as firebase from 'firebase';
+import * as firebaseall from "firebase";
+import firebase from "firebase";
 import "firebase/firestore";
-import "firebase/auth";
 
 
 
@@ -21,12 +21,14 @@ const firebaseConfig = {
 //* Initialize Firebase
 
 let app;
-if (firebase.apps.length === 0){
-  firebase.initializeApp(firebaseConfig);
-}else{
-  app = firebase.app()
+if (firebaseall.apps.length === 0) {
+  app = firebase.initializeApp(firebaseConfig);
+} else {
+  app = firebase.app();
 }
 
 const auth = firebase.auth();
 const db = firebase.firestore();
-export {auth, db};
+
+export {auth};
+export default { firebase, db };
