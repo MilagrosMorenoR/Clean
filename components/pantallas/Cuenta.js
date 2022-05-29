@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Text } from "react-native";
+import { Text,StyleSheet } from "react-native";
+import  { widthPercentageToDP  as  wp ,  heightPercentageToDP  as  hp }  from  'react-native-responsive-screen' ;
 import {
   Heading,
   Input,
@@ -48,9 +49,9 @@ const Cuenta = ({ navigation }) => {
   
   return (
     <NativeBaseProvider>
-      <Center bg="primary.400">
+      <Center bg="#03b5fc">
         <Center
-          bg="primary.400"
+          bg="#03b5fc"
           _text={{
             color: "white",
             fontWeight: "bold",
@@ -75,18 +76,27 @@ const Cuenta = ({ navigation }) => {
         </Center>
       </Center>
 
+  
+
       <Center backgroundColor={"#FFFFFF"}>
-        <ScrollView>
+        <ScrollView style={style.textstyle}>
+        <Image
+          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ), }}
+          source={require("./images/editicon.png")}
+            />
           <Popover
             initialFocusRef={initialFocusRef}
             trigger={(triggerProps) => {
               return (
+                
                 <Button size="lg" variant="link" {...triggerProps}>
                   Editar Informacion
                 </Button>
               );
             }}
           >
+            
+            
             <Popover.Content width="56">
               <Popover.Arrow />
               <Popover.CloseButton />
@@ -138,6 +148,12 @@ const Cuenta = ({ navigation }) => {
             </Popover.Content>
           </Popover>
 
+
+          <Image
+          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
+          source={require("./images/credit.png")}
+            />
+
           <Popover
             initialFocusRef={initialFocusRef}
             trigger={(triggerProps) => {
@@ -176,18 +192,29 @@ const Cuenta = ({ navigation }) => {
               </Popover.Footer>
             </Popover.Content>
           </Popover>
-
+          
+          
+          <Image
+          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
+          source={require("./images/cerrarsesion.png")}
+            />
+          
+      
           <Button size="lg" variant="link" onPress={handleSingOut}>
             Cerrar Sesión
           </Button>
         </ScrollView>
+        
       </Center>
+      
+      
 
-      <Text>Email: {auth.currentUser?.email} </Text>
+
+      <Text >Email: {auth.currentUser?.email} </Text>
 
       <Box flex={1} bg="white" safeAreaTop>
         <Center flex={1}></Center>
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
+        <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
           <Pressable
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
@@ -252,7 +279,7 @@ const Cuenta = ({ navigation }) => {
                 size="sm"
               />
               <Text color="white" fontSize="12">
-                MisServicios
+                Mis servicios
               </Text>
             </Center>
           </Pressable>
@@ -282,7 +309,25 @@ const Cuenta = ({ navigation }) => {
         </HStack>
       </Box>
     </NativeBaseProvider>
+    
+    
   );
 };
+
+
+const style = StyleSheet.create({
+  container: {
+      flex:1,
+      backgroundColor:"#FFFFFF"
+
+  },
+  textstyle: {
+      
+      textAlign:"center",
+
+      marginTop: hp ( '1%' )
+  }
+
+});
 
 export default Cuenta;

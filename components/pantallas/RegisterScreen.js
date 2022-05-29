@@ -13,7 +13,7 @@ const RegisterScreen = ({ navigation }) => {
 
            <Image
           style={{ width: 200, height: 200, marginLeft:100,marginRight:100,marginTop:30,marginBottom: 2 }}
-          source={require("./registrate.png")}
+          source={require("./images/registrate.png")}
             />
             <Text style={style.txtTitulo}>Registrate ahora!</Text>
             <View style={style.textInputContainer}>

@@ -49,7 +49,7 @@ const LoginScreen = ({ navigation }) => {
                
                <Image
           style={{ width: 300,height: 259, marginRight: hp ( '5%' ), marginLeft: hp ( '5%' ),marginTop: hp ( '5%' ) }}
-          source={require("./dashcleanlogo.png")}
+          source={require("./images/dashcleanlogo.png")}
             />
                 
                 <Text style={style.txtTitulo}>Inicia sesión o registrate!</Text>
