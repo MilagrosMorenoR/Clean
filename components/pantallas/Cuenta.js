@@ -81,7 +81,7 @@ const Cuenta = ({ navigation }) => {
       <Center backgroundColor={"#FFFFFF"}>
         <ScrollView style={style.textstyle}>
         <Image
-          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ), }}
+          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ), }}
           source={require("./images/editicon.png")}
             />
           <Popover
@@ -150,7 +150,7 @@ const Cuenta = ({ navigation }) => {
 
 
           <Image
-          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
+          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
           source={require("./images/credit.png")}
             />
 
@@ -195,13 +195,22 @@ const Cuenta = ({ navigation }) => {
           
           
           <Image
-          style={{ width:30,height: 30, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
+          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
           source={require("./images/cerrarsesion.png")}
             />
           
       
           <Button size="lg" variant="link" onPress={handleSingOut}>
             Cerrar Sesión
+          </Button>
+
+           <Image
+          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
+          source={require("./images/contact.png")}
+            />
+          
+          <Button size="lg" variant="link" onPress={() => navigation.navigate("Contacto")}>
+            Contacto y ayuda
           </Button>
         </ScrollView>
         
