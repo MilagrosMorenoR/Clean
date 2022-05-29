@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
               marginTop: 30,
               marginBottom: 2,
             }}
-            source={require("./dashcleanlogo.png") }alt="image2"
+            source={require("./images/dashcleanlogo.png") }alt="image2"
           />
         </Center>
         <Center backgroundColor={"#FFFFFF"} pt={5}>
@@ -177,7 +177,7 @@ const HomeScreen = ({ navigation }) => {
             </Button>
         </Center>
 
-        <Center bg="indigo.600">
+        <Center bg="#03cffc">
           <Box
             flex={1}
             bg="white"
@@ -188,7 +188,7 @@ const HomeScreen = ({ navigation }) => {
           >
             <Center flex={1}></Center>
             <HStack
-              bg="indigo.600"
+              bg="#03cffc"
               alignItems="center"
               safeAreaBottom
               shadow={6}
@@ -257,7 +257,7 @@ const HomeScreen = ({ navigation }) => {
                     size="sm"
                   />
                   <Text color="white" fontSize="12">
-                    MisServicios
+                    Mis servicios
                   </Text>
                 </Center>
               </Pressable>

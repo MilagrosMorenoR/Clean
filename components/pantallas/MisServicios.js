@@ -170,7 +170,7 @@ const MisServicios = ({ navigation }) => {
 
       <Box flex={1} bg="white" safeAreaTop>
                 <Center flex={1}></Center>
-                <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={6}>
+                <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
                     <Pressable
                         opacity={selected === 0 ? 1 : 0.5}
                         py="3"
