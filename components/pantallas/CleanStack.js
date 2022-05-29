@@ -1,6 +1,7 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import LoginScreen from "./LoginScreen";
+import Contacto from "./Contacto";
 import RegisterScreen from "./RegisterScreen";
 import HomeScreen from "./HomeScreen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -30,6 +31,7 @@ const CleanStack =  () => {
           <Stack.Screen name="Paquetes" component={Paquetes} />
           <Stack.Screen name="ServicioPublicado" component={ServicioPublicado} />
           <Stack.Screen name="DetallesTrabajador" component={DetallesTrabajador}/>
+          <Stack.Screen name="Contacto" component={Contacto}/>
 
         </Stack.Navigator>
       </NavigationContainer>
