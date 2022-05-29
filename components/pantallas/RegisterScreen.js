@@ -34,12 +34,7 @@ const RegisterScreen = ({ navigation }) => {
 
                 />
             </View>
-            <View style={style.textInputContainer}>
-                <TextInput
-                    placeholder="Contraseña"
-                    secureTextEntry={true}
-                />
-            </View>
+            
 
             <View style={style.textISeparation}>
 
