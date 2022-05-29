@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
               marginTop: 30,
               marginBottom: 2,
             }}
-            source={require("./dashcleanlogo.png")} alt="images"
+            source={require("./images/dashcleanlogo.png")} alt="images"
           />
         </Center>
         <Center backgroundColor={"#FFFFFF"} pt={5}>

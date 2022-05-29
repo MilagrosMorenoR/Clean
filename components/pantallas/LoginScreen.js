@@ -48,7 +48,7 @@ const LoginScreen = ({ navigation }) => {
             <View style={style.co}>
                
                <Image
-          style={{ width: 300,height: 259, marginRight: hp ( '5%' ), marginLeft: hp ( '5%' ),marginTop: hp ( '5%' ) }}
+          style={{ width: 300,height: 259, marginRight: hp ( '5%' ), marginLeft: hp ( '5%' ),marginTop: hp ( '10%' ) }}
           source={require("./images/dashcleanlogo.png")}
             />
                 
@@ -78,7 +78,8 @@ const LoginScreen = ({ navigation }) => {
 
                 <View style={style.BtnContainer}>
                 <Button
-                    onPress={handleSignUp}
+                    //onPress={handleSignUp}
+                    onPress={() => navigation.navigate("RegisterScreen")}
                     title="Registrate" 
                 >
                 </Button>
