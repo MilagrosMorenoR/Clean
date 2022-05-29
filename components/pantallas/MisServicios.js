@@ -20,17 +20,15 @@ import {
   Link,
   VStack,
   Skeleton,
-  Text, 
+  Text,
 } from "native-base";
-import { StyleSheet, Alert} from "react-native";
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { StyleSheet, Alert } from "react-native";
+import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { auth } from "./firebase-config";
-
 
 const MisServicios = ({ navigation }) => {
   return (
     <NativeBaseProvider>
-
       <Box alignItems="center">
         <Box
           maxW="80"
@@ -96,7 +94,7 @@ const MisServicios = ({ navigation }) => {
                 ml="-0.5"
                 mt="-1"
               >
-                8:00am   $600
+                8:00am $600
               </Text>
               <Text
                 fontSize="xs"
@@ -128,7 +126,8 @@ const MisServicios = ({ navigation }) => {
               </Text>
             </Stack>
             <Text fontWeight="400">
-              Servicio de limpieza de 4 horas en departamento, con limpieza continua de cocina, cochera y dos habitaciones y un baño.
+              Servicio de limpieza de 4 horas en departamento, con limpieza
+              continua de cocina, cochera y dos habitaciones y un baño.
             </Text>
             <HStack
               alignItems="center"
@@ -148,129 +147,102 @@ const MisServicios = ({ navigation }) => {
               </HStack>
             </HStack>
             <Text
-                  color="blue.600"
-                  _dark={{
-                    color: "blue.200",
-                  }}
-                  fontWeight="400"
-                  style={styles.underline}
-                  onPress={() => navigation.navigate('DetallesTrabajador')}
-                >
-                  Amaia Gutierrez
-                </Text>
-          </Stack> 
+              color="blue.600"
+              _dark={{
+                color: "blue.200",
+              }}
+              fontWeight="400"
+              style={styles.underline}
+              onPress={() => navigation.navigate("DetallesTrabajador")}
+            >
+              Amaia Gutierrez
+            </Text>
+          </Stack>
 
-          
-          <Button onPress={() => navigation.navigate("HomeScreen")}>Finalizar servicio</Button>
-
-      
+          <Button onPress={() => navigation.navigate("HomeScreen")}>
+            Finalizar servicio
+          </Button>
         </Box>
       </Box>
-      
 
       <Box flex={1} bg="white" safeAreaTop>
-                <Center flex={1}></Center>
-                <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
-                    <Pressable
-                        opacity={selected === 0 ? 1 : 0.5}
-                        py="3"
-                        flex={1}
-                        onPress={() => navigation.navigate('HomeScreen')}>
-                        <Center>
-                            <Icon
-                                mb="1"
-                                as={
-                                    <MaterialCommunityIcons
-                                        name={selected === 0 ? 'home' : 'home-outline'}
-                                    />
-                                }
-                                color="white"
-                                size="sm"
-                            />
-                            <Text color="white" fontSize="12">
-                                Buscar
-                            </Text>
-                        </Center>
-                    </Pressable>
-
-                    <Pressable
-                opacity={selected === 0 ? 1 : 0.5}
-                py="3"
-                flex={1}
-                onPress={() => navigation.navigate("PublicarServicio")}
-              >
-                <Center>
-                  <Icon
-                    mb="1"
-                    as={
-                      <MaterialCommunityIcons
-                        name={selected === 0 ? "Buscar" : "home-outline"}
-                      />
-                    }
-                    color="white"
-                    size="sm"
+        <Center flex={1}></Center>
+        <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
+          <Pressable
+            opacity={selected === 0 ? 1 : 0.5}
+            py="3"
+            flex={1}
+            onPress={() => navigation.navigate("HomeScreen")}
+          >
+            <Center>
+              <Icon
+                mb="1"
+                as={
+                  <MaterialCommunityIcons
+                    name={selected === 0 ? "home" : "home-outline"}
                   />
-                  <Text color="white" fontSize="12">
-                    Publicar
-                  </Text>
-                </Center>
-              </Pressable>
+                }
+                color="white"
+                size="sm"
+              />
+              <Text color="white" fontSize="12">
+                Buscar
+              </Text>
+            </Center>
+          </Pressable>
 
-                    <Pressable
-                        opacity={selected === 2 ? 1 : 0.6}
-                        py="2"
-                        flex={1}
-                        onPress={() => navigation.navigate('MisServicios')}
-                    >
-                        <Center>
-                            <Icon
-                                mb="1"
-                                as={
-                                    <MaterialCommunityIcons
-                                        name={selected === 3 ? 'account' : 'account-outline'}
-                                    />
-                                }
-                                color="white"
-                                size="sm"
-                            />
-                            <Text color="white" fontSize="12">
-                                MisServicios
-                            </Text>
-                        </Center>
-                    </Pressable>
+          <Pressable
+            opacity={selected === 2 ? 1 : 0.6}
+            py="2"
+            flex={1}
+            onPress={() => navigation.navigate("MisServicios")}
+          >
+            <Center>
+              <Icon
+                mb="1"
+                as={
+                  <MaterialCommunityIcons
+                    name={selected === 3 ? "account" : "account-outline"}
+                  />
+                }
+                color="white"
+                size="sm"
+              />
+              <Text color="white" fontSize="12">
+                MisServicios
+              </Text>
+            </Center>
+          </Pressable>
 
-                    <Pressable
-                        opacity={selected === 2 ? 1 : 0.6}
-                        py="2"
-                        flex={1}
-                        onPress={() => navigation.navigate('Cuenta')}
-                    >
-                        <Center>
-                            <Icon
-                                mb="1"
-                                as={
-                                    <MaterialCommunityIcons
-                                        name={selected === 3 ? 'account' : 'account-outline'}
-                                    />
-                                }
-                                color="white"
-                                size="sm"
-                            />
-                            <Text color="white" fontSize="12">
-                                Cuenta
-                            </Text>
-                            
-                        </Center>
-                    </Pressable>
-                    
-                </HStack>
-            </Box>
+          <Pressable
+            opacity={selected === 2 ? 1 : 0.6}
+            py="2"
+            flex={1}
+            onPress={() => navigation.navigate("Cuenta")}
+          >
+            <Center>
+              <Icon
+                mb="1"
+                as={
+                  <MaterialCommunityIcons
+                    name={selected === 3 ? "account" : "account-outline"}
+                  />
+                }
+                color="white"
+                size="sm"
+              />
+              <Text color="white" fontSize="12">
+                Cuenta
+              </Text>
+            </Center>
+          </Pressable>
+        </HStack>
+      </Box>
     </NativeBaseProvider>
   );
 };
 const styles = StyleSheet.create({
-    
-    underline: {textDecorationLine: 'underline'}
+  underline: { textDecorationLine: "underline" },
 });
 
 export default MisServicios;

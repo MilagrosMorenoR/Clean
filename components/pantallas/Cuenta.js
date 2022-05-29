@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { Text,StyleSheet } from "react-native";
-import  { widthPercentageToDP  as  wp ,  heightPercentageToDP  as  hp }  from  'react-native-responsive-screen' ;
+import { Text, StyleSheet } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import {
   Heading,
   Input,
@@ -32,21 +35,18 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
-import {auth} from '../pantallas/firebase-config';
-
-
-
+import { auth } from "../pantallas/firebase-config";
 
 const Cuenta = ({ navigation }) => {
   const handleSingOut = () => {
     auth
-    .signOut()
-    .then(() => {
-      navigation.navigate('LoginScreen');
-    })
-    .catch(error => alert(error.message))
-  }
-  
+      .signOut()
+      .then(() => {
+        navigation.navigate("LoginScreen");
+      })
+      .catch((error) => alert(error.message));
+  };
+
   return (
     <NativeBaseProvider>
       <Center bg="#03b5fc">
@@ -76,27 +76,29 @@ const Cuenta = ({ navigation }) => {
         </Center>
       </Center>
 
-  
-
       <Center backgroundColor={"#FFFFFF"}>
         <ScrollView style={style.textstyle}>
-        <Image
-          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ), }}
-          source={require("./images/editicon.png")}
-            />
+          <Image
+            style={{
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              marginLeft: hp("7%"),
+              justifyContent: "center",
+              marginTop: hp("1%"),
+            }}
+            source={require("./images/editicon.png")}
+          />
           <Popover
             initialFocusRef={initialFocusRef}
             trigger={(triggerProps) => {
               return (
-                
                 <Button size="lg" variant="link" {...triggerProps}>
                   Editar Informacion
                 </Button>
               );
             }}
           >
-            
-            
             <Popover.Content width="56">
               <Popover.Arrow />
               <Popover.CloseButton />
@@ -148,11 +150,17 @@ const Cuenta = ({ navigation }) => {
             </Popover.Content>
           </Popover>
 
-
           <Image
-          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
-          source={require("./images/credit.png")}
-            />
+            style={{
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              marginLeft: hp("7%"),
+              justifyContent: "center",
+              marginTop: hp("1%"),
+            }}
+            source={require("./images/credit.png")}
+          />
 
           <Popover
             initialFocusRef={initialFocusRef}
@@ -192,36 +200,48 @@ const Cuenta = ({ navigation }) => {
               </Popover.Footer>
             </Popover.Content>
           </Popover>
-          
-          
+
           <Image
-          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
-          source={require("./images/cerrarsesion.png")}
-            />
-          
-      
+            style={{
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              marginLeft: hp("7%"),
+              justifyContent: "center",
+              marginTop: hp("1%"),
+            }}
+            source={require("./images/cerrarsesion.png")}
+          />
+
           <Button size="lg" variant="link" onPress={handleSingOut}>
             Cerrar Sesión
           </Button>
 
-           <Image
-          style={{ width:35,height: 35, alignItems:"center", marginLeft: hp ( '7%' ),justifyContent:"center", marginTop: hp ( '1%' ) }}
-          source={require("./images/contact.png")}
-            />
-          
-          <Button size="lg" variant="link" onPress={() => navigation.navigate("Contacto")}>
+          <Image
+            style={{
+              width: 35,
+              height: 35,
+              alignItems: "center",
+              marginLeft: hp("7%"),
+              justifyContent: "center",
+              marginTop: hp("1%"),
+            }}
+            source={require("./images/contact.png")}
+          />
+
+          <Button
+            size="lg"
+            variant="link"
+            onPress={() => navigation.navigate("Contacto")}
+          >
             Contacto y ayuda
           </Button>
         </ScrollView>
-        
       </Center>
-      
-      
 
+      <Text>Email: {auth.currentUser?.email} </Text>
 
-      <Text >Email: {auth.currentUser?.email} </Text>
-
-      <Box flex={1} bg="white" safeAreaTop>
+      <Box flex={1} bg="white" >
         <Center flex={1}></Center>
         <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
           <Pressable
@@ -246,29 +266,6 @@ const Cuenta = ({ navigation }) => {
               </Text>
             </Center>
           </Pressable>
-
-          <Pressable
-                opacity={selected === 0 ? 1 : 0.5}
-                py="3"
-                flex={1}
-                onPress={() => navigation.navigate("PublicarServicio")}
-              >
-                <Center>
-                  <Icon
-                    mb="1"
-                    as={
-                      <MaterialCommunityIcons
-                        name={selected === 0 ? "Buscar" : "home-outline"}
-                      />
-                    }
-                    color="white"
-                    size="sm"
-                  />
-                  <Text color="white" fontSize="12">
-                    Publicar
-                  </Text>
-                </Center>
-              </Pressable>
 
           <Pressable
             opacity={selected === 2 ? 1 : 0.6}
@@ -318,25 +315,19 @@ const Cuenta = ({ navigation }) => {
         </HStack>
       </Box>
     </NativeBaseProvider>
-    
-    
   );
 };
 
-
 const style = StyleSheet.create({
   container: {
-      flex:1,
-      backgroundColor:"#FFFFFF"
-
+    flex: 1,
+    backgroundColor: "#FFFFFF",
   },
   textstyle: {
-      
-      textAlign:"center",
+    textAlign: "center",
 
-      marginTop: hp ( '1%' )
-  }
-
+    marginTop: hp("1%"),
+  },
 });
 
 export default Cuenta;
