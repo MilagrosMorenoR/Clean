@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, TextInput, StyleSheet } from "react-native";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -7,6 +7,7 @@ import {
 import {
   Heading,
   Input,
+  
   Popover,
   initialFocusRef,
   FormControl,
@@ -39,6 +40,47 @@ import { auth } from "../pantallas/firebase-config";
 
 const Cuenta = ({ navigation }) => {
   const [usuario, setUsuario] = useState([]);
+  const [data, setData] = useState({
+    Nombre: "",
+    Apellidos: "",
+    Celular: "",
+  });
+
+  const [tarjeta, setTarjeta] = useState({
+    Numero: "",
+    CVV: "",
+    email: "",
+  });
+
+  const handleChange = (Nombre, value) => {
+    setData({
+      ...data,
+      [Nombre]: value,
+    });
+  };
+
+  const Change = () => {
+    setTarjeta({
+      ...tarjeta,
+    })
+  };
+  
+
+  const SaveNewTarjeta = async () => {
+    try {
+      await firebase
+      .db
+      .collection("Tarjeta")    
+      .add({
+          Numero: tarjeta.Numero,
+          CVV: tarjeta.CVV,
+          email: auth.currentUser?.email,
+        });
+        alert("Tarjeta agregada");
+    } catch (error) {
+      alert("Something went wrong, please try again later.");
+    }
+  };
 
   useEffect(() => {
     firebase.db
@@ -47,7 +89,6 @@ const Cuenta = ({ navigation }) => {
       .get()
       .then(function (querySnapshot) {
         const usuario = [];
-        console.log("alv");
         querySnapshot.forEach(function (doc) {
           const { Apellidos, Celular, Nombre, email, password } = doc.data();
           usuario.push({
@@ -57,11 +98,26 @@ const Cuenta = ({ navigation }) => {
             email: email,
             password: password,
           });
-          console.log("Sis");
-        }); //malo
+        }); 
         setUsuario(usuario);
       });
   }, []);
+
+  const UpdateUser = async () => {
+    try {
+      await firebase
+      .db
+      .collection("Usuario")
+      .where("email", "==", auth.currentUser?.email)
+      .update({
+          Nombre: data.Nombre,
+          Apellidos: data.Apellidos,
+          Celular: data.Celular,
+        });
+    } catch (error) {
+      alert("Something went wrong, please try again later.");
+    }
+  };
 
   const handleSingOut = () => {
     auth
@@ -72,17 +128,6 @@ const Cuenta = ({ navigation }) => {
       .catch((error) => alert(error.message));
   };
 
-  const handleFullDelete = () => {
-    firebase.db
-      .collection("Usuario")
-      .where("email", "==", auth.currentUser?.email)
-      .get()
-      .then(function(querySnapshot){
-        querySnapshot.forEach(function(doc){
-          doc.ref.delete();
-        });
-      });
-  };
 
   const handleDelete = () => {
     firebase.db
@@ -174,7 +219,7 @@ const Cuenta = ({ navigation }) => {
                       >
                         Nombre(s)
                       </FormControl.Label>
-                      <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
+                      <Input rounded="sm" fontSize="xs" onChangeText={(txt) => handleChange("Nombre", txt)}>{usuario.Nombre}</Input>
                     </FormControl>
                     <FormControl mt="3">
                       <FormControl.Label
@@ -183,9 +228,9 @@ const Cuenta = ({ navigation }) => {
                           fontWeight: "medium",
                         }}
                       >
-                        {usuario.Apellidos}
+                        Apellidos
                       </FormControl.Label>
-                      <Input rounded="sm" fontSize="xs" />
+                      <Input rounded="sm" fontSize="xs" onChangeText={(txt) => handleChange("Apellidos", txt)}>{usuario.Apellidos}</Input>
                     </FormControl>
                     <FormControl mt="3">
                       <FormControl.Label
@@ -196,7 +241,7 @@ const Cuenta = ({ navigation }) => {
                       >
                         Telefono
                       </FormControl.Label>
-                      <Input rounded="sm" fontSize="xs" />
+                      <Input rounded="sm" fontSize="xs" onChangeText={(txt) => handleChange("Celular", txt)}>{usuario.Celular}</Input>
                     </FormControl>
                   </Popover.Body>
                   <Popover.Footer>
@@ -204,7 +249,7 @@ const Cuenta = ({ navigation }) => {
                       <Button colorScheme="coolGray" variant="ghost">
                         cancelar
                       </Button>
-                      <Button>Guardar</Button>
+                      <Button onPress={UpdateUser}>Guardar</Button>
                     </Button.Group>
                   </Popover.Footer>
                 </Popover.Content>
@@ -247,7 +292,19 @@ const Cuenta = ({ navigation }) => {
                       >
                         Numero de cuenta
                       </FormControl.Label>
-                      <Input rounded="sm" fontSize="xs" ref={initialFocusRef} />
+                      <Input placeholder="Numero" onChangeText={(txt) => handleChange("Numero", txt)}/>
+                    </FormControl>
+
+                    <FormControl>
+                      <FormControl.Label
+                        _text={{
+                          fontSize: "xs",
+                          fontWeight: "medium",
+                        }}
+                      >
+                        CVV
+                      </FormControl.Label>
+                      <Input placeholder="CVV" onChangeText={(txt) => handleChange("CVV", txt)}/>
                     </FormControl>
                   </Popover.Body>
                   <Popover.Footer>
@@ -255,7 +312,7 @@ const Cuenta = ({ navigation }) => {
                       <Button colorScheme="coolGray" variant="ghost">
                         cancelar
                       </Button>
-                      <Button>Guardar</Button>
+                      <Button onPress={SaveNewTarjeta}>Guardar</Button>
                     </Button.Group>
                   </Popover.Footer>
                 </Popover.Content>

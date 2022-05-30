@@ -1,5 +1,5 @@
 import React, { Component, useState } from "react";
-import { Text } from "react-native";
+import { Text, TextInput } from "react-native";
 import {
   Heading,
   Input,
@@ -80,7 +80,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Dia que realizara la limpieza
               </FormControl.Label>
-              <Input placeholder="DD/MM/AAAA" keyboardType="numeric" onChangeText={(txt) => handleChange("Dia", txt)}/>
+              <TextInput placeholder="Dia" onChangeText={(txt) => handleChange("Dia", txt)}/>
               <FormControl.HelperText
                 _text={{
                   fontSize: "xs",
@@ -100,7 +100,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Calle
               </FormControl.Label>
-              <Input placeholder="Ej: Diagonal Alfil" onChangeText={(txt) => handleChange("Calle", txt)}/>
+              <TextInput placeholder="Calle" onChangeText={(txt) => handleChange("Calle", txt)}/>
             </FormControl>
           </VStack>
 
