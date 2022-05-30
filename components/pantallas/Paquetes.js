@@ -140,7 +140,7 @@ const Paquetes = ({ navigation, route }) => {
                   </Stack>
                 </Box>
               </Box>
-              <Text>Hola {JSON.stringify(Calle)}</Text>
+            
             </Center>
           );
         })}

@@ -138,6 +138,7 @@ const Cuenta = ({ navigation }) => {
         querySnapshot.forEach(function(doc){
           doc.ref.delete();
         });
+        alert("Borrado con exito");
       });
     auth.signOut();
     auth.currentUser.delete();

@@ -38,11 +38,13 @@ const HomeScreen = ({ navigation }) => {
     Cp: "",
   });
 
-  const handleChange = () => {
+
+
+  const handleChange = (Nombre, value) => {
     setData({
       ...data,
+      [Nombre]: value,
     });
-    console.log(data.Calle);
   };
 
   const PasandoDatos = () => {
