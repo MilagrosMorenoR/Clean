@@ -8,7 +8,9 @@ import {
   Box,
   ViewPropTypes,
   Pressable,
+
 } from "react-native";
+import {ScrollView, NativeBaseProvider } from "native-base"
 import { Button } from "react-native";
 import HomeScreen from "./HomeScreen";
 import {
@@ -72,6 +74,8 @@ const LoginScreen = ({ navigation }) => {
 
 
   return (
+    <NativeBaseProvider>
+      <ScrollView>
     <View style={style.co}>
       <Image
         style={{
@@ -131,6 +135,8 @@ const LoginScreen = ({ navigation }) => {
         </Text>
       </View>
     </View>
+    </ScrollView>
+    </NativeBaseProvider>
   );
 };
 
