@@ -57,8 +57,8 @@ const Cuenta = ({ navigation }) => {
             email: email,
             password: password,
           });
-          console.log("Sis")
-        });//malo
+          console.log("Sis");
+        }); //malo
         setUsuario(usuario);
       });
   }, []);
@@ -72,40 +72,68 @@ const Cuenta = ({ navigation }) => {
       .catch((error) => alert(error.message));
   };
 
+  const handleFullDelete = () => {
+    firebase.db
+      .collection("Usuario")
+      .where("email", "==", auth.currentUser?.email)
+      .get()
+      .then(function(querySnapshot){
+        querySnapshot.forEach(function(doc){
+          doc.ref.delete();
+        });
+      });
+  };
+
+  const handleDelete = () => {
+    firebase.db
+      .collection("Usuario")
+      .where("email", "==", auth.currentUser?.email)
+      .get()
+      .then(function(querySnapshot){
+        querySnapshot.forEach(function(doc){
+          doc.ref.delete();
+        });
+      });
+    auth.signOut();
+    auth.currentUser.delete();
+    navigation.replace("LoginScreen");
+  };
+
   return (
     <NativeBaseProvider>
-      
+      <ScrollView>
       <Center bg="#03b5fc">
-      {usuario.map((usuario) => {
+        {usuario.map((usuario) => {
           return (
-        <Center
-          bg="#03b5fc"
-          _text={{
-            color: "white",
-            fontWeight: "bold",
-          }}
-          height={200}
-          width={{
-            base: 200,
-            lg: 250,
-          }}
-        >
-          <Avatar
-            bg="green.500"
-            size="xl"
-            source={{
-              uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-            }}
-          >
-            AJ
-          </Avatar>
-          <Text style={{ color: "#FFFFFF" }}>{usuario.Nombre} {usuario.Apellidos}</Text>
-          <Text style={{ color: "#FFFFFF" }}>{usuario.Celular}</Text>
-        </Center>
+            <Center
+              bg="#03b5fc"
+              _text={{
+                color: "white",
+                fontWeight: "bold",
+              }}
+              height={200}
+              width={{
+                base: 200,
+                lg: 250,
+              }}
+            >
+              <Avatar
+                bg="green.500"
+                size="xl"
+                source={{
+                  uri: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                }}
+              >
+                AJ
+              </Avatar>
+              <Text style={{ color: "#FFFFFF" }}>
+                {usuario.Nombre} {usuario.Apellidos}
+              </Text>
+              <Text style={{ color: "#FFFFFF" }}>{usuario.Celular}</Text>
+            </Center>
           );
-      })}
+        })}
       </Center>
-
       <Center backgroundColor={"#FFFFFF"}>
         {usuario.map((usuario) => {
           return (
@@ -258,6 +286,22 @@ const Cuenta = ({ navigation }) => {
                   justifyContent: "center",
                   marginTop: hp("1%"),
                 }}
+                source={require("./images/cerrarsesion.png")}
+              />
+
+              <Button size="lg" variant="link" onPress={handleDelete}>
+                Eliminar cuenta
+              </Button>
+
+              <Image
+                style={{
+                  width: 35,
+                  height: 35,
+                  alignItems: "center",
+                  marginLeft: hp("7%"),
+                  justifyContent: "center",
+                  marginTop: hp("1%"),
+                }}
                 source={require("./images/contact.png")}
               />
 
@@ -346,6 +390,7 @@ const Cuenta = ({ navigation }) => {
           </Pressable>
         </HStack>
       </Box>
+      </ScrollView>
     </NativeBaseProvider>
   );
 };

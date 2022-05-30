@@ -37,11 +37,12 @@ const HomeScreen = ({ navigation }) => {
   const handleChange = () => {
     setData({
       ...data,
+      
     });
+    console.log(data.Calle)
   };
 
   const PasandoDatos = () => {
-    console.log(data.Calle)
     navigation.navigate("Paquetes", 
     {
       Calle: data.Calle,
