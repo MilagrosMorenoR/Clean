@@ -26,8 +26,13 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
   const [data, setData] = useState({
-    Calle: ""
-  }); 
+    Calle: "",
+    Dia: "",
+    NumeroExt: "",
+    NumeroInt: "",
+    Colonia: "",
+    Cp: "",
+  });
 
   const handleChange = () => {
     setData({
@@ -35,6 +40,18 @@ const HomeScreen = ({ navigation }) => {
     });
   };
 
+  const PasandoDatos = () => {
+    console.log(data.Calle)
+    navigation.navigate("Paquetes", 
+    {
+      Calle: data.Calle,
+      Dia: data.Dia,
+      NumeroExt: data.NumeroExt,
+      NumeroInt: data.NumeroInt,
+      Colonia: data.Colonia,
+      Cp: data.Cp,
+    })
+  }
 
 
   return (
@@ -62,7 +79,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Dia que realizara la limpieza
               </FormControl.Label>
-              <Input placeholder="DD/MM/AAAA" keyboardType="numeric"/>
+              <Input placeholder="DD/MM/AAAA" keyboardType="numeric" onChangeText={(txt) => handleChange("Dia", txt)}/>
               <FormControl.HelperText
                 _text={{
                   fontSize: "xs",
@@ -95,7 +112,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Numero(ext)
               </FormControl.Label>
-              <Input placeholder="Ej: 146" keyboardType="numeric"/>
+              <Input placeholder="Ej: 146" keyboardType="numeric" onChangeText={(txt) => handleChange("NumeroExt", txt)}/>
             </FormControl>
           </VStack>
 
@@ -108,7 +125,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Numero(int)
               </FormControl.Label>
-              <Input placeholder="Ej: 1" keyboardType="numeric"/>
+              <Input placeholder="Ej: 1" keyboardType="numeric" onChangeText={(txt) => handleChange("NumeroInt", txt)}/>
             </FormControl>
           </VStack>
 
@@ -121,7 +138,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Colonia
               </FormControl.Label>
-              <Input placeholder="Ej: Lomas del Ajedrez" />
+              <Input placeholder="Ej: Lomas del Ajedrez" onChangeText={(txt) => handleChange("Colonia", txt)}/>
             </FormControl>
           </VStack>
 
@@ -134,11 +151,11 @@ const HomeScreen = ({ navigation }) => {
               >
                 Codigo Postal
               </FormControl.Label>
-              <Input placeholder="Ej: 20299" keyboardType="numeric"/>
+              <Input placeholder="Ej: 20299" keyboardType="numeric" onChangeText={(txt) => handleChange("Cp", txt)}/>
             </FormControl>
           </VStack>
           
-          <Button onPress={() => navigation.navigate("Paquetes", {Calle: 'hola'})} >
+          <Button onPress={PasandoDatos} >
               Siguiente
             </Button>
         </Center>
