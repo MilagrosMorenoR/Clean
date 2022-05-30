@@ -31,7 +31,7 @@ import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 import firebase from "../pantallas/firebase-config";
 
 const Paquetes = ({ navigation, route }) => {
-  const {Calle} = route.params;
+  const {Calle, Dia, Colonia, Cp, NumeroExt, NumeroInt} = route.params;
 
   const [paquetes, setPaquetes] = useState([]);
   useEffect(() => {
