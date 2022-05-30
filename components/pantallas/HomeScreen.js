@@ -25,6 +25,18 @@ import {
 import { MaterialCommunityIcons, MaterialIcons } from "@expo/vector-icons";
 
 const HomeScreen = ({ navigation }) => {
+  const [data, setData] = useState({
+    Calle: ""
+  }); 
+
+  const handleChange = () => {
+    setData({
+      ...data,
+    });
+  };
+
+
+
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -70,7 +82,7 @@ const HomeScreen = ({ navigation }) => {
               >
                 Calle
               </FormControl.Label>
-              <Input placeholder="Ej: Diagonal Alfil" />
+              <Input placeholder="Ej: Diagonal Alfil" onChangeText={(txt) => handleChange("Calle", txt)}/>
             </FormControl>
           </VStack>
 
@@ -125,7 +137,8 @@ const HomeScreen = ({ navigation }) => {
               <Input placeholder="Ej: 20299" keyboardType="numeric"/>
             </FormControl>
           </VStack>
-          <Button onPress={() => navigation.navigate("Paquetes")} >
+          
+          <Button onPress={() => navigation.navigate("Paquetes", {Calle: 'hola'})} >
               Siguiente
             </Button>
         </Center>
