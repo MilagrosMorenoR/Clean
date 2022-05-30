@@ -1,5 +1,9 @@
 import React, { Component, useState } from "react";
-import { Text, TextInput } from "react-native";
+import { Text, TextInput, StyleSheet } from "react-native";
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from "react-native-responsive-screen";
 import {
   Heading,
   Input,
@@ -37,129 +41,74 @@ const HomeScreen = ({ navigation }) => {
   const handleChange = () => {
     setData({
       ...data,
-      
     });
-    console.log(data.Calle)
+    console.log(data.Calle);
   };
 
   const PasandoDatos = () => {
-    navigation.navigate("Paquetes", 
-    {
+    navigation.navigate("Paquetes", {
       Calle: data.Calle,
       Dia: data.Dia,
       NumeroExt: data.NumeroExt,
       NumeroInt: data.NumeroInt,
       Colonia: data.Colonia,
       Cp: data.Cp,
-    })
-  }
-
+    });
+  };
 
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <Center backgroundColor={"#FFFFFF"}>
-          <Image
-            style={{
-              width: 300,
-              height: 259,
-              marginLeft: 50,
-              marginTop: 30,
-              marginBottom: 2,
-            }}
-            source={require("./images/dashcleanlogo.png")} alt="images"
+      <Image
+        style={{
+          width: 250,
+          height: 259,
+          marginRight: hp("5%"),
+          marginLeft: hp("5%"),
+          marginTop: hp("10%"),
+        }}
+        source={require("./images/registrate.png")}
+      />
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Dia"
+            onChangeText={(txt) => handleChange("Dia", txt)}
           />
-        </Center>
-        <Center backgroundColor={"#FFFFFF"} pt={5}>
-          <VStack width="90%" mx="3" maxW="300px">
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Dia que realizara la limpieza
-              </FormControl.Label>
-              <TextInput placeholder="Dia" onChangeText={(txt) => handleChange("Dia", txt)}/>
-              <FormControl.HelperText
-                _text={{
-                  fontSize: "xs",
-                }}
-              >
-                Por favor ponga el formato indicado
-              </FormControl.HelperText>
-            </FormControl>
-          </VStack>
+        </View>
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Calle"
+            onChangeText={(txt) => handleChange("Calle", txt)}
+          />
+        </View>
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Numero Exterior"
+            onChangeText={(txt) => handleChange("NumeroExt", txt)}
+          />
+        </View>
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Numero Interior"
+            onChangeText={(txt) => handleChange("NumeroInt", txt)}
+          />
+        </View>
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Colonia"
+            onChangeText={(txt) => handleChange("Colonia", txt)}
+          />
+        </View>
+        <View style={style.textInputContainer}>
+          <TextInput
+            placeholder="Cp"
+            onChangeText={(txt) => handleChange("Cp", txt)}
+          />
+        </View>
 
-          <VStack width="90%" mx="3" maxW="300px" pt={5}>
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Calle
-              </FormControl.Label>
-              <TextInput placeholder="Calle" onChangeText={(txt) => handleChange("Calle", txt)}/>
-            </FormControl>
-          </VStack>
-
-          <VStack width="90%" mx="3" maxW="300px" pt={5}>
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Numero(ext)
-              </FormControl.Label>
-              <Input placeholder="Ej: 146" keyboardType="numeric" onChangeText={(txt) => handleChange("NumeroExt", txt)}/>
-            </FormControl>
-          </VStack>
-
-          <VStack width="90%" mx="3" maxW="300px" pt={5}>
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Numero(int)
-              </FormControl.Label>
-              <Input placeholder="Ej: 1" keyboardType="numeric" onChangeText={(txt) => handleChange("NumeroInt", txt)}/>
-            </FormControl>
-          </VStack>
-
-          <VStack width="90%" mx="3" maxW="300px" pt={5}>
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Colonia
-              </FormControl.Label>
-              <Input placeholder="Ej: Lomas del Ajedrez" onChangeText={(txt) => handleChange("Colonia", txt)}/>
-            </FormControl>
-          </VStack>
-
-          <VStack width="90%" mx="3" maxW="300px" pt={5} pb={5}>
-            <FormControl isRequired>
-              <FormControl.Label
-                _text={{
-                  bold: true,
-                }}
-              >
-                Codigo Postal
-              </FormControl.Label>
-              <Input placeholder="Ej: 20299" keyboardType="numeric" onChangeText={(txt) => handleChange("Cp", txt)}/>
-            </FormControl>
-          </VStack>
-          
-          <Button onPress={PasandoDatos} >
-              Siguiente
-            </Button>
-        </Center>
+        <View style={style.BtnContainer}>
+          <Button onPress={PasandoDatos} title="Siguiente">Siguiente</Button>
+        </View>
 
         <Center bg="#03cffc">
           <Box
@@ -171,12 +120,7 @@ const HomeScreen = ({ navigation }) => {
             alignSelf="center"
           >
             <Center flex={1}></Center>
-            <HStack
-              bg="#03cffc"
-              alignItems="center"
-              safeAreaBottom
-              shadow={6}
-            >
+            <HStack bg="#03cffc" alignItems="center" safeAreaBottom shadow={6}>
               <Pressable
                 opacity={selected === 0 ? 1 : 0.5}
                 py="3"
@@ -199,10 +143,6 @@ const HomeScreen = ({ navigation }) => {
                   </Text>
                 </Center>
               </Pressable>
-
-
-              
-
 
               <Pressable
                 opacity={selected === 2 ? 1 : 0.6}
@@ -257,4 +197,60 @@ const HomeScreen = ({ navigation }) => {
   );
 };
 
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#FFFFFF",
+  },
+  txtTitulo: {
+    fontSize: hp("3%"),
+    textAlign: "center",
+    color: "#000000",
+    marginTop: hp("1%"),
+  },
+  txtTerminos: {
+    fontSize: hp("1%"),
+    textAlign: "center",
+    color: "#000000",
+    marginTop: hp("1%"),
+  },
+  textInputContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#FFF",
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: hp("2%"),
+    borderRadius: 10,
+  },
+  BtnContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 15,
+    marginRight: 15,
+    marginTop: hp("2%"),
+    borderRadius: 10,
+  },
+  textISeparation: {
+    marginTop: hp("2%"),
+  },
+
+  btnSesion: {
+    marginTop: hp("2%"),
+    marginLeft: 30,
+    marginRight: 30,
+    backgroundColor: "#1AB6FF",
+    height: 50,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  txtSesion: {
+    color: "#FFF",
+    fontSize: 17,
+    fontWeight: "bold",
+  },
+});
 export default HomeScreen;
